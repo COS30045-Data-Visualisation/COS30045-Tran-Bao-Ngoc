@@ -1,0 +1,199 @@
+/* set color for websign */
+:root {
+  --ink: #14213d;
+  --ink-soft: #3a4a6b;
+  --volt: #fca311;
+  --volt-dark: #c77f00;
+  --paper: #f6f7fb;
+  --card: #ffffff;
+  --line: #d9deea;
+  --error: #b3261e;
+  --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --max-width: 60rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+img { max-width: 100%; height: auto; }
+:focus-visible { outline: 3px solid var(--volt); outline-offset: 2px; }
+
+/* ---------- Navigation ---------- */
+.site-header { background: var(--ink); border-bottom: 4px solid var(--volt); }
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.nav-logo img { width: 44px; height: 44px; display: block; }
+
+.nav-links { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
+
+.nav-links a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+.nav-links a:hover { background: var(--volt); color: var(--ink); }   /* mouse-over */
+.nav-links a.active { border-bottom-color: var(--volt); font-weight: 700; color: var(--volt); } /* trang hiện tại */
+.nav-links a.active:hover { color: var(--ink); }
+
+/* ---------- Layout ---------- */
+main { flex: 1; width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 2rem 1rem 3rem; }
+h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 0.75rem; }
+h3 { margin: 0 0 1rem; }
+p { max-width: 68ch; }
+.lead { font-size: 1.15rem; color: var(--ink-soft); }
+.note { font-size: 0.85rem; color: var(--ink-soft); }
+
+.hero {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  border-left: 8px solid var(--volt);
+}
+.hero h1 { color: #fff; }
+.hero .lead { color: #dfe5f5; margin-bottom: 0; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--volt);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.stat .value { display: block; font-size: 1.9rem; font-weight: 700; }
+.stat .label { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ---------- FAQ accordion ---------- */
+.faq-item {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--card);
+  color: var(--ink);
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.faq-question:hover { background: #fff4de; }
+.faq-question::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--volt-dark); }
+.faq-question[aria-expanded="true"]::after { content: "\2212"; }
+.faq-question[aria-expanded="true"] { border-bottom: 1px solid var(--line); }
+.faq-answer { padding: 0.9rem 1.1rem; }
+.faq-answer[hidden] { display: none; }
+.faq-answer p { margin: 0; }
+
+/* ---------- Table ---------- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); }
+th, td { padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid var(--line); }
+th { background: var(--ink); color: #fff; }
+.num { text-align: right; }
+
+/* ---------- Calculator ---------- */
+.calculator { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.5rem; align-items: start; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; }
+
+.field { margin-bottom: 1.1rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.field .hint { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.2rem; }
+.field input, .field select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+}
+.field input:focus, .field select:focus { border-color: var(--volt); }
+.field input.invalid { border-color: var(--error); }
+.error-msg { display: block; min-height: 1.2em; margin-top: 0.25rem; font-size: 0.9rem; color: var(--error); }
+
+.btn {
+  padding: 0.7rem 1.4rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--volt);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn:hover { background: var(--volt-dark); color: #fff; }
+
+.results-list { list-style: none; margin: 0; padding: 0; }
+.results-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+.results-list li:last-child { border-bottom: 0; }
+.result-value { font-weight: 700; font-variant-numeric: tabular-nums; }
+.results-list .highlight .result-value { color: var(--volt-dark); font-size: 1.15rem; }
+.results-message { margin: 0 0 0.75rem; color: var(--ink-soft); }
+.results-message.error { color: var(--error); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink);
+  color: #dfe5f5;
+  border-top: 4px solid var(--volt);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0.15rem auto; max-width: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 34rem) {
+  .nav { justify-content: center; }
+  h1 { font-size: 1.7rem; }
+  .hero { padding: 1.5rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
