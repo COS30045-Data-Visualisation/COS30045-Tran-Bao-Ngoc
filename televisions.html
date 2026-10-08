@@ -3,147 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Televisions | Appliance Energy Consumption</title>
-
+  <title>Televisions | Appliance Energy Consumption Website</title>
+  <meta name="description" content="Does a bigger TV mean higher energy consumption? A data story for Australian households.">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
 </head>
-
 <body>
 
   <header class="site-header">
-    <nav class="nav">
-
-      <a class="nav-logo" href="index.html">
-        <img src="assets/images/PowerIcon.png" alt="Power logo">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__logo" href="index.html" aria-label="Appliance Energy Consumption, go to Home page">
+        <img src="assets/img/PowerIcon.png" alt="Power icon logo" width="40" height="40">
         <span>Appliance Energy</span>
       </a>
-
-      <ul class="nav-links">
+      <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="televisions.html">Televisions</a></li>
+        <li><a href="televisions.html" aria-current="page">Televisions</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
-
     </nav>
   </header>
 
-
   <main>
-
-    <section class="hero">
-      <h1>Televisions</h1>
-
-      <p class="lead">
-        Televisions are a useful starting point for this unit. They are common, their power use is easy to understand, and the data set we use in Exercise 1 describes them.
-      </p>
-    </section>
-
-
-    <section>
-      <h2>What affects television energy use?</h2>
-
-      <p>
-       Placeholder content. Screen size is the strongest single influence on how much power a television draws, but panel technology, brightness settings and the age of the unit all matter as well. Two televisions of the same size can differ substantially once these are taken into account.
-      </p>
-
-      <div class="stats">
-
-        <article class="stat">
-          <h3>Screen size</h3>
-          <p>Placeholder text. A larger panel lights more area, so it generally draws more power.</p>
-        </article>
-
-        <article class="stat">
-          <h3>Panel technology</h3>
-          <p>Placeholder text. LED, OLED and older LCD panels behave differently at the same size.</p>
-        </article>
-
-        <article class="stat">
-          <h3>Brightness</h3>
-          <p>Placeholder text. Shop floor display settings are far brighter than most living rooms need.</p>
-        </article>
-
-        <article class="stat">
-          <h3>Hours of use</h3>
-          <p>Placeholder text. Annual cost depends as much on hours watched as on the wattage itself.</p>
-        </article>
-
+    <section class="story-hero">
+      <div class="container">
+        <h1>Does a bigger TV mean higher energy consumption?</h1>
+        <p class="lead">For many Australian households, screen size is a key part of choosing a new television. A larger screen may give a better viewing experience, but it may also need more electricity to run.</p>
       </div>
     </section>
 
+    <section class="section section--tint" aria-labelledby="setting-title">
+      <div class="container">
+        <h2 id="setting-title">Before we look at the data</h2>
+        <div class="notes">
+          <div>
+            <h3>Who this is for</h3>
+            <p>Households across Australia choosing a new TV or replacing an old one. You do not need a statistics background. Sizes are in inches and energy is in kWh per year, the same unit used on the Energy Rating Label.</p>
+          </div>
+          <div>
+            <h3>What you probably already know</h3>
+            <p>A bigger TV probably uses more power, and many appliances carry an energy label. Your electricity bill is measured in kWh, but you may not think in kWh when you shop for a TV.</p>
+          </div>
+          <div>
+            <h3>What this page adds</h3>
+            <p>How big the gap really is, not just which way it points. What it means in dollars per year. And why two TVs of the same size can still use different amounts of electricity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section>
-      <h2>Illustrative comparison</h2>
+    <section class="section" aria-labelledby="conflict-title">
+      <div class="container">
+        <h2 id="conflict-title">The surprise: the gap is bigger than you might expect</h2>
+        <div class="conflict__feature">
+          <p class="conflict__figure" aria-hidden="true">4.7&times;</p>
+          <p class="conflict__line">The average Large TV uses about 4.7 times as much electricity per year as the average Small TV.</p>
+        </div>
+        <p>Most people expect a bigger TV to cost a little more to run. In this data the difference is far more than a little.</p>
+        <p>That makes screen size a decision about your electricity bill as well as your living room.</p>
+      </div>
+    </section>
 
-      <p class="note">
-        The figures below are placeholder values for demonstration.
-      </p>
-
-      <div class="table-wrap">
-
+    <section class="section section--tint" aria-labelledby="evidence-title">
+      <div class="container prose">
+        <h2 id="evidence-title">The numbers behind it</h2>
+        <p>Each TV in the dataset has a labelled annual energy consumption. Grouping the TVs by screen size and averaging each group gives these results.</p>
         <table>
+          <caption>Average labelled annual energy consumption by TV size group</caption>
           <thead>
-            <tr>
-              <th>Screen size</th>
-              <th>Panel type</th>
-              <th class="num">Power (W)</th>
-              <th class="num">Yearly energy (kWh)</th>
-            </tr>
+            <tr><th scope="col">Size group</th><th scope="col">Average energy use</th><th scope="col">Compared with Small</th></tr>
           </thead>
-
           <tbody>
-            <tr>
-              <td>32 inch</td>
-              <td>LED</td>
-              <td class="num">45</td>
-              <td class="num">66</td>
-            </tr>
-
-            <tr>
-              <td>43 inch</td>
-              <td>LED</td>
-              <td class="num">65</td>
-              <td class="num">95</td>
-            </tr>
-
-            <tr>
-              <td>55 inch</td>
-              <td>LED</td>
-              <td class="num">90</td>
-              <td class="num">131</td>
-            </tr>
-
-            <tr>
-              <td>65 inch</td>
-              <td>LED</td>
-              <td class="num">120</td>
-              <td class="num">175</td>
-            </tr>
-
-            <tr>
-              <td>65 inch</td>
-              <td>OLED</td>
-              <td class="num">145</td>
-              <td class="num">212</td>
-            </tr>
+            <tr><th scope="row">Small</th><td>158 kWh/year</td><td>baseline</td></tr>
+            <tr><th scope="row">Medium</th><td>403 kWh/year</td><td>2.6 times</td></tr>
+            <tr><th scope="row">Large</th><td>746 kWh/year</td><td>4.7 times</td></tr>
           </tbody>
         </table>
+        <p>The step from Small to Large is 588 kWh a year per TV on average. These are averages for the TVs in this dataset, so an individual TV can be higher or lower.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chart-title">
+      <div class="container">
+        <h2 id="chart-title" class="visually-hidden">Charts</h2>
+
+        <div class="story-block">
+          <div>
+            <h3>Grouped by size, the gap is easy to see</h3>
+            <p>Each bar is the average for one size group, ordered from Small to Large so the rise reads left to right.</p>
+            <p>Change the electricity price to see what each group costs to run for a year.</p>
+          </div>
+          <figure class="chart">
+            <p class="chart__title" id="meter-title">Average annual energy use increases with TV size</p>
+            <ul class="meter" aria-labelledby="meter-title">
+              <li class="meter__row" data-kwh="158">
+                <div class="meter__name"><strong>Small</strong><span>baseline</span></div>
+                <div class="meter__track" aria-hidden="true"><div class="meter__bar meter__bar--small"></div></div>
+                <div class="meter__figures"><strong>158 kWh/year</strong><span>about <span class="js-cost">$47.40</span> a year</span></div>
+              </li>
+              <li class="meter__row" data-kwh="403">
+                <div class="meter__name"><strong>Medium</strong><span>2.6&times; Small</span></div>
+                <div class="meter__track" aria-hidden="true"><div class="meter__bar meter__bar--medium"></div></div>
+                <div class="meter__figures"><strong>403 kWh/year</strong><span>about <span class="js-cost">$120.90</span> a year</span></div>
+              </li>
+              <li class="meter__row" data-kwh="746">
+                <div class="meter__name"><strong>Large</strong><span>4.7&times; Small</span></div>
+                <div class="meter__track" aria-hidden="true"><div class="meter__bar meter__bar--large"></div></div>
+                <div class="meter__figures"><strong>746 kWh/year</strong><span>about <span class="js-cost">$223.80</span> a year</span></div>
+              </li>
+            </ul>
+
+            <div class="price-control">
+              <div class="field">
+                <label for="tv-price">Electricity price (cents per kWh)</label>
+                <input type="number" id="tv-price" inputmode="decimal" min="0.01" max="200" step="any" value="30" aria-describedby="tv-price-error">
+                <p class="field__error" id="tv-price-error"></p>
+              </div>
+            </div>
+            <figcaption>Average labelled annual energy consumption by TV size group. Cost is the yearly kWh multiplied by the price above.</figcaption>
+          </figure>
+        </div>
+
+        <div class="story-block">
+          <div>
+            <h3>Every TV, one dot each</h3>
+            <p>The dots rise from left to right, so the gap is not just a result of grouping the TVs.</p>
+            <p>They also spread up and down. TVs of the same size can use quite different amounts of electricity, so size matters a lot but it is not the only factor.</p>
+          </div>
+          <figure class="chart">
+            <img class="js-chart-img" src="assets/img/tv-scatter.png" alt="Scatter plot of TV screen size in inches against labelled annual energy consumption in kWh per year. Larger screens generally sit higher, with some spread between TVs of the same size.">
+            <figcaption><strong>Larger TVs generally use more energy each year.</strong> Each dot is one television. Horizontal axis: screen size (inches). Vertical axis: annual energy consumption (kWh/year).</figcaption>
+          </figure>
+        </div>
+
+        <div class="story-block">
+          <div>
+            <h3>Does screen technology change the answer?</h3>
+            <p>Grouping the same TVs by screen technology gives a similar picture. In every size group, LCD, LCD (LED) and OLED sit close together compared with the jump from one size group to the next.</p>
+            <p>Technology does make some difference, most visibly for Small TVs, where OLED has the highest average. It does not change the main story: size comes first.</p>
+          </div>
+          <figure class="chart">
+            <img class="js-chart-img" src="assets/img/tv-size-tech.png" alt="Grouped bar chart of average annual energy use for Small, Medium and Large TVs, split by screen technology: LCD, LCD (LED) and OLED. Within each size group the three technologies are close, while Large TVs use far more than Small TVs.">
+            <figcaption><strong>Size matters more than screen technology.</strong> Average annual energy use (kWh/year) by size group and screen technology.</figcaption>
+          </figure>
+        </div>
 
       </div>
     </section>
-    <p>
-        Try these numbers in the <a href="index.html#calculator">calculator on the
-        home page</a> to see the estimated cost for your own tariff.
-      </p>
 
+    <section class="section takeaway" aria-labelledby="takeaway-title">
+      <div class="container">
+        <h2 id="takeaway-title">What this means for your next TV</h2>
+        <p class="takeaway__line">Bigger screens generally come with higher energy use.</p>
+        <p>Before you buy, compare the kWh per year on the Energy Rating Label for TVs of the same size. Screen technology changes the number less than size does, so the label is the quickest way to tell similar-sized TVs apart.</p>
+        <p>This does not mean everyone should choose the smallest TV. It means asking how much screen you really need, because that choice shows up on every electricity bill. <a class="takeaway__link" href="about.html">About Us</a> explains how the data was prepared and what it cannot tell you.</p>
+      </div>
+    </section>
   </main>
 
-
   <footer class="site-footer">
-    <p>&copy; <span class="current-year">2026</span> Tran Bao Ngoc</p>
-    <p> Generative AI acknowledgement: ChatGPT was used for debugging, while Claude was used to support the JavaScript and CSS structure.</p>
+    <div class="container">
+      <p>&copy; <span class="js-year">2026</span> Tran Bao Ngoc</p>
+      <p class="site-footer__ai">Generative AI acknowledgement: AI tools were used to help plan and write parts of this website. See the README for details.</p>
+    </div>
   </footer>
 
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
