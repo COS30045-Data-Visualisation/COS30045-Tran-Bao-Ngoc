@@ -3,237 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Appliance Energy Consumption</title>
-
+  <title>Home | Appliance Energy Consumption Website</title>
+  <meta name="description" content="How much electricity do household appliances use in Australia, and what does it cost to run them?">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/calculator.js" defer></script>
 </head>
-
 <body>
 
   <header class="site-header">
-    <nav class="nav">
-
-      <a class="nav-logo" href="index.html">
-        <img src="assets/images/PowerIcon.png" alt="Power logo">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__logo" href="index.html" aria-label="Appliance Energy Consumption, go to Home page">
+        <img src="assets/img/PowerIcon.png" alt="Power icon logo" width="40" height="40">
         <span>Appliance Energy</span>
       </a>
-
-      <ul class="nav-links">
-        <li><a class="active" href="index.html">Home</a></li>
+      <ul class="nav__links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="televisions.html">Televisions</a></li>
         <li><a href="about.html">About Us</a></li>
       </ul>
-
     </nav>
   </header>
 
-
   <main>
-
     <section class="hero">
-      <h1>What do your appliances actually cost to run?</h1>
-      <p class="lead">
-       Australian households run dozens of appliances, and very few of us know which ones drive the bill. This site collects plain explanations and a simple calculator so you can work it out for yourself.
-      </p>
-    </section>
+      <div class="container hero__grid">
+        <div>
+          <h1>What does your appliance cost to run?</h1>
+          <p class="lead">Every appliance in an Australian home draws power, and that power shows up on the bill. Pick an appliance, enter how long you use it, and see the energy and cost over a day, a month and a year.</p>
+          <p><a class="button" href="televisions.html">Read the television story</a></p>
+        </div>
 
-
-    <section>
-      <h2>Household energy use in Australia</h2>
-
-      <p>
-        Placeholder content. Appliance energy use varies widely across Australian households, with heating, cooling, hot water and refrigeration usually accounting for the largest share. Entertainment appliances such as televisions and set top boxes use less power individually, but they are often left on for long periods, so their annual contribution is larger than people expect.
-      </p>
-
-      <p>
-        Placeholder content. The figures on this site are illustrative only and are used to demonstrate page structure and interactivity. Real figures will be introduced in Exercise 1, when we start working with the appliance energy data set.
-      </p>
-
-      <div class="stats">
-
-        <article class="stat">
-          <h3>Standby power</h3>
-          <p>
-            Many appliances continue to use a small amount of electricity
-            while on standby.
-          </p>
-        </article>
-
-        <article class="stat">
-          <h3>Star ratings</h3>
-          <p>
-            Energy rating labels help compare appliances of the same type
-            before purchasing.
-          </p>
-        </article>
-
-        <article class="stat">
-          <h3>Time of use</h3>
-          <p>
-            Some electricity tariffs change price depending on the time
-            of day.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-
-    <section id="calculator">
-      <h2>Appliance Energy Calculator</h2>
-
-      <p>
-        Enter the appliance details to estimate energy use and running cost.
-      </p>
-
-      <div class="calculator">
-
-        <div class="panel">
-          <h3>Your inputs</h3>
+        <section class="calculator" aria-labelledby="calc-title">
+          <h2 id="calc-title">Appliance energy calculator</h2>
 
           <form id="energy-form" novalidate>
-
             <div class="field">
-              <label for="model">Appliance</label>
-              <select id="model" name="model">
-                <option value="">Enter my own wattage</option>
-                <option value="90">LED television, 55 inch (90 W)</option>
-                <option value="120">LED television, 65 inch (120 W)</option>
-                <option value="150">Refrigerator, 400 L (150 W)</option>
-                <option value="2200">Electric kettle (2200 W)</option>
-                <option value="2000">Portable heater (2000 W)</option>
+              <label for="appliance">Appliance</label>
+              <select id="appliance" name="appliance">
+                <option value="100" selected>Television, 55 inch (about 100 W)</option>
+                <option value="60">Laptop (about 60 W)</option>
+                <option value="150">Refrigerator (about 150 W while running)</option>
+                <option value="1500">Air conditioner, cooling (about 1,500 W)</option>
+                <option value="500">Washing machine (about 500 W)</option>
+                <option value="1100">Microwave (about 1,100 W)</option>
+                <option value="custom">My own appliance (enter watts below)</option>
               </select>
+              <span class="field__hint">Wattages are rough examples. Check the label on your own appliance.</span>
             </div>
 
-            <div class="field">
-              <label for="watts">Power usage (watts)</label>
-              <input type="number" id="watts" name="watts" value="90" min="0" max="10000">
-              <span class="error-msg" id="watts-error"></span>
-            </div>
+            <div class="calculator__row">
+              <div class="field">
+                <label for="watts">Power usage (watts)</label>
+                <input type="number" id="watts" name="watts" inputmode="decimal" min="1" max="10000" step="any" value="100" aria-describedby="watts-error">
+                <p class="field__error" id="watts-error"></p>
+              </div>
 
-            <div class="field">
-              <label for="hours">Average hours of use per day</label>
-              <input type="number" id="hours" name="hours" value="4" min="0" max="24">
-              <span class="error-msg" id="hours-error"></span>
+              <div class="field">
+                <label for="hours">Hours of use per day</label>
+                <input type="number" id="hours" name="hours" inputmode="decimal" min="0" max="24" step="any" value="5" aria-describedby="hours-error">
+                <p class="field__error" id="hours-error"></p>
+              </div>
             </div>
 
             <div class="field">
               <label for="price">Electricity price (cents per kWh)</label>
-              <input type="number" id="price" name="price" value="30" min="0" max="500">
-              <span class="error-msg" id="price-error"></span>
+              <input type="number" id="price" name="price" inputmode="decimal" min="0.01" max="200" step="any" value="30" aria-describedby="price-error">
+              <span class="field__hint">30 is an example. Use the rate on your own bill.</span>
+              <p class="field__error" id="price-error"></p>
             </div>
 
-            <button type="submit" class="btn">Calculate</button>
-
+            <button type="submit" class="button">Calculate</button>
           </form>
-        </div>
 
-
-        <div class="panel">
-          <h3>Estimated usage and cost</h3>
-
-          <p class="results-message" id="results-message"></p>
-
-          <ul class="results-list">
-            <li>
-              <span>Daily energy</span>
-              <span class="result-value" id="res-daily">-</span>
-            </li>
-
-            <li>
-              <span>Monthly energy</span>
-              <span class="result-value" id="res-monthly">-</span>
-            </li>
-
-            <li>
-              <span>Yearly energy</span>
-              <span class="result-value" id="res-yearly">-</span>
-            </li>
-
-            <li>
-              <span>Monthly cost</span>
-              <span class="result-value" id="res-cost-monthly">-</span>
-            </li>
-
-            <li class="highlight">
-              <span>Yearly cost</span>
-              <span class="result-value" id="res-cost-yearly">-</span>
-            </li>
-          </ul>
-        </div>
-
+          <div class="readout" id="results" aria-live="polite">
+            <p class="readout__message" id="results-message" hidden></p>
+            <div id="results-values">
+              <p class="readout__headline" id="out-cost-year">$0.00</p>
+              <p class="readout__caption">estimated cost per year</p>
+              <dl class="readout__list">
+                <div><dt>Energy per day</dt><dd id="out-kwh-day">0 kWh</dd></div>
+                <div><dt>Energy per month</dt><dd id="out-kwh-month">0 kWh</dd></div>
+                <div><dt>Energy per year</dt><dd id="out-kwh-year">0 kWh</dd></div>
+                <div><dt>Cost per month</dt><dd id="out-cost-month">$0.00</dd></div>
+              </dl>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
-
-    <section>
-      <h2>Frequently Asked Questions</h2>
-
-      <div class="faq">
-
-        <div class="faq-item">
-          <button type="button" class="faq-question"
-                  id="faq-q1"
-                  aria-expanded="false"
-                  aria-controls="faq-a1">
-            How is energy use measured?
-          </button>
-
-          <div class="faq-answer" id="faq-a1" hidden>
-            <p>
-              Electricity use is measured in kilowatt-hours (kWh).
-              One kWh is the energy used by a 1000 watt appliance
-              running for one hour.
-            </p>
+    <section class="section section--tint" aria-labelledby="market-title">
+      <div class="container">
+        <h2 id="market-title">Appliance energy in Australian homes</h2>
+        <div class="notes">
+          <div>
+            <h3>Small loads add up</h3>
+            <p>Heating, cooling and hot water usually use the most energy in a home. Televisions, computers and kitchen appliances use less each, but they run every day and the total is easy to overlook.</p>
+          </div>
+          <div>
+            <h3>Read the energy label</h3>
+            <p>Many appliances sold in Australia carry an Energy Rating Label that shows a star rating and an estimated number of kilowatt hours per year. It is the quickest way to compare two models.</p>
+          </div>
+          <div>
+            <h3>Standby is still use</h3>
+            <p>An appliance that is switched off at the remote can still draw a small amount of power. Over a whole year, even a small standby draw becomes a measurable number on the bill.</p>
           </div>
         </div>
-
-
-        <div class="faq-item">
-          <button type="button" class="faq-question"
-                  id="faq-q2"
-                  aria-expanded="false"
-                  aria-controls="faq-a2">
-            Why does my bill change between seasons?
-          </button>
-
-          <div class="faq-answer" id="faq-a2" hidden>
-            <p>
-              Heating and cooling are major seasonal electricity users,
-              so bills often increase during very hot or cold months.
-            </p>
-          </div>
-        </div>
-
-
-        <div class="faq-item">
-          <button type="button" class="faq-question"
-                  id="faq-q3"
-                  aria-expanded="false"
-                  aria-controls="faq-a3">
-            Are the figures on this site real?
-          </button>
-
-          <div class="faq-answer" id="faq-a3" hidden>
-            <p>
-              No. The figures are placeholders used to demonstrate
-              the structure and functionality of the website.
-            </p>
-          </div>
-        </div>
-
       </div>
     </section>
 
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq">
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button type="button" class="faq__button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">What is a kilowatt hour (kWh)?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <p>A kilowatt hour is the unit your electricity bill uses. It is the energy used by a 1,000 watt appliance running for one hour. A 100 watt television running for ten hours uses one kWh.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button type="button" class="faq__button" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">How does the calculator work out the cost?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <p>It multiplies watts by hours of use and divides by 1,000 to get kWh per day. It then multiplies that by 365 for a year and by your price per kWh, converted from cents to dollars.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button type="button" class="faq__button" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">Are the results exact?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
+              <p>No. They are estimates. Real appliances draw different amounts of power at different times, and electricity plans can include supply charges or different rates at different times of day.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button type="button" class="faq__button" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">Where does the television data come from?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" hidden>
+              <p>The television story uses product data on screen size and labelled annual energy consumption. The About Us page explains how the data was prepared and what its limits are.</p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3 class="faq__heading">
+              <button type="button" class="faq__button" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5">Does a bigger television always use more energy?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5" hidden>
+              <p>Not always, but in the data it usually does. <a href="televisions.html">Read the television story</a> to see the pattern and how much the difference is.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </main>
 
-
   <footer class="site-footer">
-    <p>&copy; <span class="current-year">2026</span> Tran Bao Ngoc</p>
-    <p> Generative AI acknowledgement: ChatGPT was used for debugging, while Claude was used to support the JavaScript and CSS structure.</p>
+    <div class="container">
+      <p>&copy; <span class="js-year">2026</span> Tran Bao Ngoc</p>
+      <p class="site-footer__ai">Generative AI acknowledgement: AI tools were used to help plan and write parts of this website. See the README for details.</p>
+    </div>
   </footer>
 
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
