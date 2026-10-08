@@ -3,106 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us | Appliance Energy Consumption</title>
-
+  <title>About Us | Appliance Energy Consumption Website</title>
+  <meta name="description" content="About the project, the audience, the television data, its limitations and the use of generative AI.">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js" defer></script>
 </head>
-
 <body>
 
   <header class="site-header">
-    <nav class="nav">
-
-      <a class="nav-logo" href="index.html">
-        <img src="assets/images/PowerIcon.png" alt="Power logo">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__logo" href="index.html" aria-label="Appliance Energy Consumption, go to Home page">
+        <img src="assets/img/PowerIcon.png" alt="Power icon logo" width="40" height="40">
         <span>Appliance Energy</span>
       </a>
-
-      <ul class="nav-links">
+      <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
         <li><a href="televisions.html">Televisions</a></li>
-        <li><a class="active" href="about.html">About Us</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
       </ul>
-
     </nav>
   </header>
 
-
   <main>
+    <section class="section">
+      <div class="container prose">
+        <h1>About Us</h1>
+        <p class="lead">This website looks at how much electricity household appliances use in Australia. It was built for COS30045 Data Visualisation at Swinburne Vietnam.</p>
 
-    <section class="hero">
-      <h1>About Us</h1>
-      <p class="lead">
-        This site was built for Exercise 0.2 of COS30045 Data Visualisation
-        at Swinburne University of Technology.
-      </p>
-    </section>
+        <h2>The audience</h2>
+        <p>The television story is written for Australian households and everyday consumers who are thinking about buying or replacing a TV. It uses familiar units, screen size in inches and energy use in kWh per year, and avoids technical statistics.</p>
 
+        <h2>The question</h2>
+        <p>How does television screen size relate to annual energy consumption? More specifically, do larger TVs generally use more electricity each year, and is the difference big enough to matter when choosing a new TV?</p>
 
-    <section>
-      <h2>Purpose of this site</h2>
+        <h2>About the data</h2>
+        <p>The dataset describes televisions and their energy performance. The analysis uses these variables:</p>
+        <table>
+          <thead>
+            <tr><th scope="col">Variable</th><th scope="col">Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Screen size (inches)</td><td>Size of the TV screen, rounded for grouped analysis</td></tr>
+            <tr><td>Labelled energy consumption (kWh/year)</td><td>Labelled annual electricity use of the TV</td></tr>
+            <tr><td>Screen size classification</td><td>Small, Medium or Large group created for this analysis</td></tr>
+          </tbody>
+        </table>
+        <p>The data was processed in KNIME. A Rule Engine placed each TV into a Small, Medium or Large group, and a GroupBy step calculated the average annual energy consumption of each group. The data describes products, not people, so it raises no significant individual privacy concerns.</p>
 
-      <p>
-       Placeholder content. The site demonstrates a small multipage website built with HTML, CSS and vanilla JavaScript, with the code kept in a GitHub repository. It is the starting point for the D3 work later in the unit, and the page structure here is reused in the Week 3 and Week 4 exercises.
-      </p>
+        <h2>Accuracy and limitations</h2>
+        <p>The analysis shows an association between screen size and annual energy consumption. It does not prove that screen size alone causes higher energy use.</p>
+        <p>TVs of similar size can use different amounts of electricity, so other factors such as display technology, model design and energy efficiency probably matter too. The Small, Medium and Large groups were created for this analysis and depend on the thresholds chosen in KNIME. The results describe the TVs in this dataset and should not be read as describing every TV on sale in Australia.</p>
 
-    </section>
+        <h2>Ethics</h2>
+        <p>The charts were designed to show the overall pattern without exaggerating it. The story does not say that large TVs are bad or that households should avoid them. It gives information to weigh alongside viewing needs, energy efficiency and other features.</p>
 
+        <h2>Generative AI</h2>
+        <p>Generative AI tools were used to help plan the structure of the data story, refine the written explanations for a non-technical audience, and write and debug parts of the website code. The data processing, choice of visualisations and final interpretation were reviewed and adapted by the author. A fuller reflection is in the project README.</p>
 
-    <section>
-      <h2>What this site demonstrates</h2>
-
-      <ul>
-        <li>Three linked pages sharing one navigation bar and one stylesheet.</li>
-        <li>A logo that returns the visitor to the home page, with a hover effect.</li>
-        <li>A clear indication of which page is currently open.</li>
-        <li>An accordion FAQ that is hidden by default and controlled with JavaScript.</li>
-        <li>An interactive energy calculator written in vanilla JavaScript.</li>
-        <li>Styling kept entirely in an external stylesheet.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Technologies used</h2>
-
-      <div class="stats">
-
-        <article class="stat">
-          <h3>HTML</h3>
-          <p>Provides the structure and content of the website.</p>
-        </article>
-
-        <article class="stat">
-          <h3>CSS</h3>
-          <p>Controls layout, colours and responsive design.</p>
-        </article>
-
-        <article class="stat">
-          <h3>JavaScript</h3>
-          <p>Provides the FAQ and calculator functionality.</p>
-        </article>
-
+        <h2>The author</h2>
+        <p>Tran Bao Ngoc is a first-year Computer Science student specialising in cyber security at Swinburne Vietnam.</p>
       </div>
     </section>
-
-
-    <section>
-      <h2>Contact</h2>
-
-      <p>
-        Tran Bao Ngoc, Computer Science student at
-        Swinburne University of Technology.
-      </p>
-    </section>
-
   </main>
 
-
   <footer class="site-footer">
-    <p>&copy; <span class="current-year">2026</span> Tran Bao Ngoc</p>
-    <p> Generative AI acknowledgement: ChatGPT was used for debugging, while Claude was used to support the JavaScript and CSS structure.</p>
+    <div class="container">
+      <p>&copy; <span class="js-year">2026</span> Tran Bao Ngoc</p>
+      <p class="site-footer__ai">Generative AI acknowledgement: AI tools were used to help plan and write parts of this website. See the README for details.</p>
+    </div>
   </footer>
 
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
